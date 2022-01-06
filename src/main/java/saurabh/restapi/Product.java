@@ -1,13 +1,13 @@
 package saurabh.restapi;
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
 
 @Entity
 public class Product {
     private Integer id;
-
     private String name;
-
     private float price;
 
     public Product() {
@@ -25,17 +25,27 @@ public class Product {
         return id;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(Integer id) {
         this.id = id;
     }
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String id) {
-//        this.name = name;
-//    }
+    @Column(name = "name")
+    @NonNull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "price")
+    @NonNull
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
 }
